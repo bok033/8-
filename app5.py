@@ -5,8 +5,6 @@ df["YEAR"] = df["YEAR"].astype(int)
 df["date"] = pd.to_datetime(df["YEAR"], format="%Y")
 df = df.set_index("date").sort_index()
 
-df = load_data("data/sunspots.csv")
-df["date"] = pd.to_datetime(df["YEAR"].astype(float).astype(int).astype(str), format="%Y")
 # Prophet용 전처리
 # 1. 인덱스를 다시 컬럼으로 변환(reset_index)
 # 2. Prophet은 입력 컬럼명으로 'ds'(날짜)와 'y'(타겟값)를 요구하므로 컬럼명 변경
